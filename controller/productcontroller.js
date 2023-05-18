@@ -66,18 +66,43 @@ const listproducts = async (req, res) => {
   };
 
 
+  
+const loadEditProduct = async (req, res,) => {
+    try {
+      const id = req.query.id;
+      const productData = await product.findById({ _id: id });
+      
+  
+      if (productData) {
+        res.render("editProduct", 
+        {
+          product: productData,
+          
+        }
+        );
+      } else {
+        res,
+          redirect("/admin/listProduct", { message: "product doesn't exist" });
+      }
+    } catch (error) {
+      console.log(error).message;
+      
+    }
+  };
+
+
   const editProduct = async(req,res)=>{
     try
     {
      const id = req.body.id
      const images = req.files;
-     await productModel.findByIdAndUpdate({_id:id},{$set:
+     await product.findByIdAndUpdate({_id:id},{$set:
         {name:req.body.name, mrp: req.body.mrp,
         discount: req.body.discount,
-        shipcharge: req.body.shipcharge,
-        total: req.body.total,
-        des: req.body.des,
-        image: images.map((file) => file.filename), }})
+        shippingcharge: req.body.shippingcharge,
+        totalamount: req.body.total,
+        description: req.body.description,
+        image: images.map((x) => x.filename), }})
 
         res.redirect('/')
 
@@ -109,6 +134,7 @@ module.exports={
     listproducts, 
     loadAddProduct,
     addProduct ,
+    loadEditProduct,
     editProduct,
     deleteProduct ,
 

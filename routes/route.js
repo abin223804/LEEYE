@@ -15,11 +15,21 @@ route.post(
     multer.upload.array("sImage"),
     productController.addProduct
   );
-  route.get(
+
+
+
+route.get('/loadEditProduct',productController.loadEditProduct);
+
+  route.post(
     "/editProduct",
     productController
     .editProduct)
+
+
+
     route.get("/deleteProduct", productController.  deleteProduct);
+
+    
   
 
  
