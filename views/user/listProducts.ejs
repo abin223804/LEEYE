@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<link
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/admin/assets/"
+  data-template="vertical-menu-template-free"
+>
+  <link>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title></title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/admin/assets/img/favicon/" />
+
+    <link rel="stylesheet" href="/css/admin404.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" hrel="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></link>
+   <link rel="stylesheet" hrel="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css"></link>
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="/admin/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/admin/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/admin/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/admin/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="/admin/assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script defer    src="/admin/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script defer   src="/admin/assets/js/config.js"></script>
+    <script defer   src="/admin/assets/vendor/libs/popper/popper.js"></script>
+    <script defer   src="/admin/assets/vendor/js/bootstrap.js"></script>
+    <script defer   src="/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    
+    <script defer    src="/admin/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    
+    <!-- Vendors JS -->
+    <script defer      src="/admin/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    
+    <!-- Main JS -->
+    <script defer    src="/admin/assets/js/main.js"></script>
+    
+    <!-- Page JS -->
+    <script defer    src="/admin/assets/js/dashboards-analytics.js"></script>
+    
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script defer   async  src="https://buttons.github.io/buttons.js"></script>
+    
+    <script defer    src="/admin/assets/vendor/libs/jquery/jquery.js"></script>
+
+    <!-- sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    
+
+
+   
+    
+    
+    </head>
+    <body>
+
+       <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+      <!-- Menu -->
+
+      
+			<!-- / Menu -->
+			
+			<!-- Layout container -->
+			<div class="layout-page">
+			<!-- Navbar -->
+			
+			<nav
+			  class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+			  id="layout-navbar"
+			>
+			  <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+				<a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+				  <i class="bx bx-menu bx-sm"></i>
+				</a>
+			  </div>
+			
+			  <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+				
+			
+				<ul class="navbar-nav flex-row align-items-center ms-auto">
+				  
+			
+				  <!-- User -->
+				 
+						
+					 
+					 
+					</ul>
+				  </li>
+				  <!--/ User -->
+				</ul>
+			  </div>
+			</nav>
+			
+			<!-- / Navbar -->
+			<div class="content-wrapper">
+			  <!-- Content -->
+			
+			  <div class="container-xxl flex-grow-1 container-p-y">
+				<form action="" method=""></form>
+				<a class="btn btn-primary" href="/addProduct">Add Product</a>
+			
+				<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> </h4>
+			
+			
+				<div class="card">
+				  <h5 class="card-header">Product list</h5>
+				  <div class="table-responsive text-nowrap">
+					<table class="table" id="productsTable">
+			
+					  <thead>
+						<tr>
+							<th>Slno</th>
+							<th>Name</th>
+						  <th>Description</th>
+						  
+						  <th>MRP</th>
+						  <th>Discount</th>
+						  <th>shippingcharge</th>
+						  <th>Totalamount</th>
+						  <th>Image</th>
+						  <th>Action</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<% if(products.length >0) { %>
+						  <% for(let i=0;i< products.length;i++) { %>
+			
+							<tr>
+							  <td>
+								<%= i+1 %>
+							  </td>
+							  <td>
+								<%= products[i].name %>
+							  </td>
+							  <td>
+								<%= products[i].description %>
+							  </td>
+							  <td>
+								<%= products[i].mrp %>
+							  </td>
+							  <td>
+								<%= products[i].discount %>
+							  </td>
+							  <td>
+								<%= products[i].shippingcharge%>
+							  </td>
+							  <td>
+								<%= products[i].totalamount%>
+							  </td>
+							  <td>
+								<% if(products[i].image) { %>
+								  <img src="/admin/multer/img/<%= products[i].image[0] %>" width="100vw" height="100vh">
+								  <% }%>
+							  </td>
+							  <td>
+								<a class="btn btn-info" href="/admin/editProduct?id=<%= products[i]._id %> ">Edit</a>
+			
+			
+							   
+			
+			
+			
+								<div class="dropdown">
+								  <% if(products[i].isAvailable) { %>
+									  <button class="btn  btn-outline-danger" data-toggle="modal"
+										  style="width: 90px;" data-target="#exampleModalCenter"
+										  onclick="del('<%- products[i]._id %>')">delete</button>
+									  <a id="<%- products[i]._id %>"
+										  href="/admin/unlistProduct?id=<%- products[i]._id %> "></a>
+			
+									  <% } else { %>
+										  <button class="btn  btn-outline-success"
+											  data-toggle="modal" style="width: 90px;"
+											  data-target="#exampleModalCenter"
+											  onclick="del('<%- products[i]._id %>')">delete</button>
+										  <a id="<%- products[i]._id %>"
+											  href="/user/listProduct?id=<%- products[i]._id %> "></a>
+			
+										  <% } %>
+			
+							  </div>
+			
+			
+			
+							  </td>
+			
+							</tr>
+							<% }} else { %>
+							  <tr>
+								<td colspan="5">Products Not Found</td>
+							  </tr>
+							  <% } %>
+			
+					  </tbody>
+					</table>
+				  </div>
+				</div>
+			
+			
+			
+			
+			
+			<!-- category blocking -->
+			
+						  <!-- confirm box  -->
+						  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+						  aria-hidden="true">
+						  <div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content">
+							  <div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLongTitle">Confirm delete/h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								  <span aria-hidden="true">&times;</span>
+								</button>
+							  </div>
+							  <div class="modal-body">
+								<p>Are you sure want to delete ?</p>
+							  </div>
+							  <div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save()">Block</button>
+							  </div>
+							</div>
+						  </div>
+						</div>
+					  <!-- /confirm -->
+			
+			
+
+			
+</body>
+
+
+</html>
