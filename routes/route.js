@@ -10,29 +10,19 @@ route.use(express.urlencoded({ extended: true }));
 
 route.get("/", productController.listproducts);
 route.get("/addProduct", productController.loadAddProduct);
+route.post( "/addProduct",
+  multer.upload.array("sImage"),
+  productController.addProduct
+);
+
+route.get("/loadEditProduct", productController.loadEditProduct);
+
 route.post(
-    "/addProduct",
-    multer.upload.array("sImage"),
-    productController.addProduct
-  );
+  "/editProduct",
+  multer.upload.array("image"),
+  productController.editProduct
+);
 
-
-
-route.get('/loadEditProduct',productController.loadEditProduct);
-
-  route.post(
-    "/editProduct",
-    productController
-    .editProduct)
-
-
-
-    route.get("/deleteProduct", productController.  deleteProduct);
-
-    
-  
-
- 
-
+route.get("/deleteProduct", productController.deleteProduct);
 
 module.exports = route;

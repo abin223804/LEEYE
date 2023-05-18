@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Contact Form</title>
-</head>
-<style>
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    display: none;
-  }
-  .submit-button {
-      background-color: #4CAF50;
+  <head>
+    <title>Contact Form</title>
+  </head>
+  <style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      display: none;
+    }
+    .submit-button {
+      background-color: #4caf50;
       color: white;
       padding: 12px 20px;
       border: none;
@@ -17,42 +17,191 @@
       cursor: pointer;
       font-size: 16px;
       width: 100%;
-      }
-</style>
-<body style="font-family: Arial, sans-serif;  background-color: #f2f2f2; margin: 0; padding: 20px;">
+    }
+  </style>
+  <body
+    style="
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    "
+  >
+    <div
+      class="container"
+      style="
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      "
+    >
+      <h1 style="text-align: center; color: #333">Edit Product</h1>
+      <form action="/editProduct" method="POST" enctype="multipart/form-data">
+        <label
+          for="name"
+          style="font-weight: bold; display: block; margin-bottom: 10px"
+          >Product Name:</label
+        >
+        <input
+          type="text"
+          value="<%= product.name  %>"
+          id="name"
+          name="name"
+          style="
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 14px;
+          "
+          required
+        />
 
-  <div class="container" style="max-width: 400px;  margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-    <h1 style="text-align: center; color: #333;">Edit Product</h1>
-    <form action="/user/loadEditProduct" method="POST" enctype="multipart/form-data">
-      <label for="name" style="font-weight: bold; display: block; margin-bottom: 10px;">Product Name:</label>
-      <input type="text" value="<%= product.name  %>" id="name" name="name" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; font-size: 14px;" required>
-      
+        <input type="hidden" name="id" value="<%=id%>" />
 
-      <input type="hidden" name="id" value="<%= product._id %>"
+        <label
+          for="email"
+          style="font-weight: bold; display: block; margin-bottom: 10px"
+          >MRP</label
+        >
+        <input
+          type="number"
+          id="email"
+          value="<%= product.mrp  %>"
+          name="mrp"
+          style="
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 14px;
+          "
+          required
+        />
 
+        <label
+          for="message"
+          style="font-weight: bold; display: block; margin-bottom: 10px"
+          >Discount</label
+        >
+        <input
+          id="message"
+          name="discount"
+          value="<%= product.discount  %>"
+          rows="4"
+          style="
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 14px;
+          "
+          required
+        />
 
-      <label for="email" style="font-weight: bold; display: block; margin-bottom: 10px;">MRP</label>
-      <input type="number" id="email" value="<%= product.mrp  %>" name="mrp" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; font-size: 14px;" required>
-      
-      <label for="message" style="font-weight: bold; display: block; margin-bottom: 10px;">Discount</label>
-      <input id="message" name="discount" value="<%= product.discount  %>" rows="4" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; font-size: 14px;" required>
-      
-      <label for="phone" style="font-weight: bold; display: block; margin-bottom: 10px;">Shipping Charge</label>
-      <input type="number" id="phone" value="<%= product.shipcharge %>" name="shipcharge" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; font-size: 14px;" required>
-      
-      <label for="address" style="font-weight: bold; display: block; margin-bottom: 10px;">Total Amount</label>
-      <input type="number" id="address" value="<%= product.total %>" name="total" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; font-size: 14px;" required>
-      
-      <label for="age" style="font-weight: bold; display: block; margin-bottom: 10px;">Description</label>
-      <input type="text" id="age" name="des" value="<%= product.des %>" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; font-size: 14px;" required>
-      
-      <label for="avatar" style="font-weight: bold; display: block; margin-bottom: 10px;">Image</label>
-      <input type="file" id="avatar" name="image"  multiple accept="image/png, image/gif, image/jpeg, image/jpg ,image/webp" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; font-size: 14px;" required>
-      
-      <!-- <input type="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;"> -->
-      <button type="submit" value="submit" class="submit-button"  >Submit</button>
-    </form>
-  </div>
+        <label
+          for="phone"
+          style="font-weight: bold; display: block; margin-bottom: 10px"
+          >Shipping Charge</label
+        >
+        <input
+          type="number"
+          id="phone"
+          value="<%= product.shippingcharge %>"
+          name="shipcharge"
+          style="
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 14px;
+          "
+          required
+        />
 
-</body>
+        <label
+          for="address"
+          style="font-weight: bold; display: block; margin-bottom: 10px"
+          >Total Amount</label
+        >
+        <input
+          type="number"
+          id="address"
+          value="<%= product.totalamount %>"
+          name="total"
+          style="
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 14px;
+          "
+          required
+        />
+
+        <label
+          for="age"
+          style="font-weight: bold; display: block; margin-bottom: 10px"
+          >Description</label
+        >
+        <input
+          type="text"
+          id="age"
+          name="des"
+          value="<%= product.description %>"
+          style="
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 14px;
+          "
+          required
+        />
+
+        <label
+          for="avatar"
+          style="font-weight: bold; display: block; margin-bottom: 10px"
+          >Image</label
+        >
+        <input
+          type="file"
+          id="avatar"
+          name="image"
+          multiple
+          accept="image/png, image/gif, image/jpeg, image/jpg ,image/webp"
+          style="
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 14px;
+          "
+          required
+        />
+
+        <!-- <input type="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;"> -->
+        <button type="submit" value="submit" class="submit-button">
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>
 </html>
